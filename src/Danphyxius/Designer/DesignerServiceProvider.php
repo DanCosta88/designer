@@ -12,6 +12,16 @@ class DesignerServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
 	/**
+	 * Bootstrap the application events.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		$this->package('danphyxius/designer');
+	}
+
+	/**
 	 * Register the service provider.
 	 *
 	 * @return void
@@ -40,7 +50,7 @@ class DesignerServiceProvider extends ServiceProvider {
 	{
 		$this->app->bindShared('designer.command.make', function($app)
 		{
-			return $app->make('DanPhyxius\Designer\Console\DesignerGenerateCommand');
+			return $app->make('Danphyxius\Designer\Console\DesignerGenerateCommand');
 		});
 
 		$this->commands('designer.command.make');

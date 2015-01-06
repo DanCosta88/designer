@@ -1,4 +1,4 @@
-<?php namespace DanPhyxius\Designer\Console;
+<?php namespace Danphyxius\Designer\Console;
 
 use Illuminate\Filesystem\Filesystem;
 use Mustache_Engine;

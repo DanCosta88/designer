@@ -1,4 +1,4 @@
-<?php namespace DanPhyxius\Designer\Console;
+<?php namespace Danphyxius\Designer\Console;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
