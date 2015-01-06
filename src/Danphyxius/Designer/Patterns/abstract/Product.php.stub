@@ -1,24 +1,18 @@
 <?php namespace {{ namespace }};
 
-class {{ name }} {
+/**
+ * Interface Product
+ *
+ * This contract is not part of the pattern, in general case, each component are not related
+ *
+ */
+interface {{ name }}
+{
 
-    {{# properties }}
     /**
-     * @var string
+     * Some useful generic method for all products implementations.
+     *
+     * @return string
      */
-    public ${{ . }};
-
-    {{/ properties}}
-    /**
-     {{# properties }}
-     * @param string ${{ . }}
-     {{/ properties }}
-     */
-    public function __construct({{ arguments }})
-    {
-        {{# properties}}
-        $this->{{ . }} = ${{ . }};
-        {{/ properties}}
-    }
-
+    public function fire();
 }

@@ -1,6 +1,7 @@
 <?php namespace Danphyxius\Designer\Console;
 
-class CommandInputParser {
+class InputParser
+{
 
     /**
      * Parse the command input.
@@ -23,7 +24,7 @@ class CommandInputParser {
 
         $tree = ( substr($base, -1) === '/' ) ? $base.$tree : $base . '/' . $tree;
 
-        return new CommandInput($pattern, $namespace, $tree, $properties);
+        return new Input($pattern, $namespace, $tree, $properties);
     }
 
 

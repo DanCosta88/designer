@@ -1,24 +1,29 @@
 <?php namespace {{ namespace }};
 
-class {{ name }} {
-
-    {{# properties }}
+/**
+ * Class {{ name }}
+ *
+ * {{ name }} is a concrete factory for Factory2 objects family.
+ */
+class {{ name }} extends AbstractFactory
+{
     /**
-     * @var string
+     * Creates a concrete productA object.
+     *
+     * @return ProductA|Factory2\ProductA
      */
-    public ${{ . }};
-
-    {{/ properties}}
-    /**
-     {{# properties }}
-     * @param string ${{ . }}
-     {{/ properties }}
-     */
-    public function __construct({{ arguments }})
+    public function createProductA()
     {
-        {{# properties}}
-        $this->{{ . }} = ${{ . }};
-        {{/ properties}}
+        return new Factory2\ProductA();
     }
 
+    /**
+     * Creates a concrete productB object.
+     *
+     * @return ProductA|Factory2\ProductA
+     */
+    public function createProductB()
+    {
+        return new Factory2\ProductB();
+    }
 }

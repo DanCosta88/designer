@@ -7,34 +7,45 @@
   ],
   "files": [
     {
-      "path": "",
+      "path": false,
       "file": "AbstractFactory.php.stub",
       "comment": "This file is used for that."
     },
     {
-      "path": "",
+      "path": false,
       "file": "AbstractProductA.php.stub",
       "comment": "This file is used for that."
     },
     {
-      "path": "",
+      "path": false,
       "file": "AbstractProductB.php.stub",
       "comment": "This file is used for that."
     },
     {
-      "path": "",
+      "path": false,
       "file": "ConcreteFactory1.php.stub",
       "comment": "This file is used for that."
     },
     {
-      "path": "",
+      "path": false,
       "file": "ConcreteFactory2.php.stub",
       "comment": "This file is used for that."
     },
     {
-      "path": "",
+      "path": false,
       "file": "Product.php.stub",
       "comment": "This file is used for that."
+    },
+    {
+      "path": "Factory1",
+      "file": "ProductA.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": "Factory2",
+      "file": "ProductB.php.stub",
+      "comment": "This file is used for that."
     }
-  ]
+  ],
+  "uml": true
 }

@@ -1,24 +1,33 @@
 <?php namespace {{ namespace }};
 
-class {{ name }} {
+/**
+ * class AbstractFactory
+ *
+ * Sometimes also known as "abstract factory" or "Kit" in a GUI libraries.
+ *
+ * This design pattern implements the Dependency Inversion Principle since
+ * it is the concrete subclass which creates concrete components.
+ *
+ *
+ * Therefore 4 concretes classes, 2 for factories and 2 for products, but the client just need to know this contract
+ * to build concrete products.
+ */
 
-    {{# properties }}
+abstract class {{ name }}
+{
     /**
-     * @var string
+     * Creates product A.
+     *
+     * @return ProductA
      */
-    public ${{ . }};
+    abstract public function createProductA();
 
-    {{/ properties}}
+
     /**
-     {{# properties }}
-     * @param string ${{ . }}
-     {{/ properties }}
+     * Creates product B.
+     *
+     * @return ProductB
      */
-    public function __construct({{ arguments }})
-    {
-        {{# properties}}
-        $this->{{ . }} = ${{ . }};
-        {{/ properties}}
-    }
+    abstract public function createProductB();
 
 }

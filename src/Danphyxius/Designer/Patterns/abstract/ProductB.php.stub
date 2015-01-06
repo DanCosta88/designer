@@ -1,0 +1,21 @@
+<?php namespace {{ namespace }}\{{ path }};
+
+use {{ namespace }}\AbstractProductB;
+
+/**
+ * Class {{ name }}
+ *
+ * {{ name }} is a concrete product.
+ */
+class {{ name }} extends AbstractProductB
+{
+    /**
+     * Sample dummy data return for {{ name }} of Factory1 objects family.
+     *
+     * @return string
+     */
+    public function fire()
+    {
+        return 'Concrete {{ name }} from factory 2.';
+    }
+}

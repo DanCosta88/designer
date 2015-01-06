@@ -4,7 +4,8 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class DesignerGenerateCommand extends Command {
+class DesignerGenerateCommand extends Command
+{
 
     /**
      * The console command name.
@@ -21,22 +22,22 @@ class DesignerGenerateCommand extends Command {
     protected $description = 'Generate a new design pattern class.';
 
     /**
-     * @var CommandInputParser
+     * @var InputParser
      */
     protected $parser;
 
     /**
-     * @var CommandGenerator
+     * @var PatternGenerator
      */
     protected $generator;
 
     /**
      * Create a new command instance.
      *
-     * @param CommandInputParser $parser
-     * @param CommandGenerator $generator
+     * @param InputParser $parser
+     * @param PatternGenerator $generator
      */
-    public function __construct(CommandInputParser $parser, CommandGenerator $generator)
+    public function __construct(InputParser $parser, PatternGenerator $generator)
     {
         $this->parser = $parser;
         $this->generator = $generator;
@@ -61,13 +62,13 @@ class DesignerGenerateCommand extends Command {
         $commandInput = $this->parser->parse($pattern, $path, $base, $properties);
 
         // Actually create the files with the correct boilerplate.
-        $this->generator->make(
-            $commandInput,
-            $stub
-        );
 
-        $this->info('Now i will generate a ' . $pattern . ' Pattern for path ' . $path . ', with base ' . $base);
-        $this->info('All done! Your pattern have now been generated!');
+
+        if( $this->generator->make( $commandInput, $stub ) ) {
+            $this->info('Now i will generate a ' . $pattern . ' Pattern for path ' . $path . ', with base ' . $base);
+            $this->info('All done! Your pattern has now been generated!');
+        }
+
     }
 
     /**

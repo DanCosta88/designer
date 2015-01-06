@@ -1,24 +1,16 @@
 <?php namespace {{ namespace }};
 
-class {{ name }} {
+/**
+ * Class Product
+ */
+abstract class {{ name }} implements Product
+{
 
-    {{# properties }}
-    /**
-     * @var string
-     */
-    public ${{ . }};
 
-    {{/ properties}}
     /**
-     {{# properties }}
-     * @param string ${{ . }}
-     {{/ properties }}
+     * Abstract construct for ProductB.
+     *
      */
-    public function __construct({{ arguments }})
-    {
-        {{# properties}}
-        $this->{{ . }} = ${{ . }};
-        {{/ properties}}
-    }
+    public function __construct(){}
 
 }

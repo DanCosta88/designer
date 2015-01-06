@@ -1,11 +1,13 @@
 <?php namespace Danphyxius\Designer\Console;
 
-class CommandInput {
+class Input
+{
 
     /**
      * @var string
      */
     public $pattern;
+
     /**
      * @var string
      */
@@ -22,7 +24,9 @@ class CommandInput {
     public $properties = [];
 
     /**
+     * @param $pattern
      * @param $namespace
+     * @param $tree
      * @param $properties
      */
     public function __construct($pattern, $namespace, $tree, $properties)
@@ -34,8 +38,8 @@ class CommandInput {
     }
 
 
-
     /**
+     * @param $tree
      * @return string
      */
     public function parseTree($tree)
