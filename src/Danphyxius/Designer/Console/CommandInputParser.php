@@ -9,16 +9,23 @@ class CommandInputParser {
      * @param $properties
      * @return CommandInput
      */
-    public function parse($path, $properties)
+    public function parse($pattern, $path, $base, $properties)
     {
+        $base = str_replace('//', '/', $base);
         $segments = explode('\\', str_replace('/', '\\', $path));
-        $name = array_pop($segments);
         $namespace = implode('\\', $segments);
+        $pattern = strtolower($pattern);
+
+        $base = implode('/', explode('\\', str_replace('/', '\\', $base)));
+        $tree = implode('/', $segments);
 
         $properties = $this->parseProperties($properties);
 
-        return new CommandInput($name, $namespace, $properties);
+        $tree = ( substr($base, -1) === '/' ) ? $base.$tree : $base . '/' . $tree;
+
+        return new CommandInput($pattern, $namespace, $tree, $properties);
     }
+
 
     /**
      * Parse the properties for a command.

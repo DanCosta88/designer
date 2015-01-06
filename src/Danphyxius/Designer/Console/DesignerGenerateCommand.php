@@ -52,21 +52,22 @@ class DesignerGenerateCommand extends Command {
     public function fire()
     {
         $path = $this->argument('path');
+        $pattern = strtolower($this->argument('pattern'));
         $properties = $this->option('properties');
         $base = $this->option('base');
+        $stub = __DIR__.'/../patterns/'.$pattern.'/'.$pattern.'.json';
 
         // Parse the command input.
-        $commandInput = $this->parser->parse($path, $properties);
-//        $handlerInput = $this->parser->parse($path.'Handler', $properties);
+        $commandInput = $this->parser->parse($pattern, $path, $base, $properties);
 
         // Actually create the files with the correct boilerplate.
         $this->generator->make(
             $commandInput,
-            __DIR__.'/stubs/abstract.stub',
-            "{$base}/{$path}.php"
+            $stub
         );
 
-        $this->info('All done! Your two classes have now been generated.');
+        $this->info('Now i will generate a ' . $pattern . ' Pattern for path ' . $path . ', with base ' . $base);
+        $this->info('All done! Your pattern have now been generated!');
     }
 
     /**
@@ -77,7 +78,8 @@ class DesignerGenerateCommand extends Command {
     protected function getArguments()
     {
         return [
-            ['path', InputArgument::REQUIRED, 'The class path for the pattern to generate.']
+            ['path', InputArgument::REQUIRED, 'The class path for the pattern to generate.'],
+            ['pattern', InputArgument::REQUIRED, 'The pattern to create.']
         ];
     }
 

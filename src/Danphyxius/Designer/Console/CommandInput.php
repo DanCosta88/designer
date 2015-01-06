@@ -5,12 +5,16 @@ class CommandInput {
     /**
      * @var string
      */
-    public $name;
-
+    public $pattern;
     /**
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var string
+     */
+    public $tree;
 
     /**
      * @var array
@@ -18,15 +22,25 @@ class CommandInput {
     public $properties = [];
 
     /**
-     * @param $name
      * @param $namespace
      * @param $properties
      */
-    public function __construct($name, $namespace, $properties)
+    public function __construct($pattern, $namespace, $tree, $properties)
     {
-        $this->name = $name;
+        $this->pattern = $pattern;
         $this->namespace = $namespace;
+        $this->tree = $this->parseTree($tree);
         $this->properties = $properties;
+    }
+
+
+
+    /**
+     * @return string
+     */
+    public function parseTree($tree)
+    {
+        return implode('/', explode('\\', str_replace('/', '\\', $tree)));
     }
 
     /**

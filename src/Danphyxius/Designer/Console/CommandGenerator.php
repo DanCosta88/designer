@@ -36,15 +36,60 @@ class CommandGenerator {
      * 
      * @param CommandInput $input
      * @param $template
-     * @param $destination
      */
-    public function make(CommandInput $input, $template, $destination)
+    public function make(CommandInput $input, $template)
     {
-        $template = $this->file->get($template);
+        $template = json_decode($this->file->get($template));
 
+        if( $template ) {
+
+            if (! $this->file->isDirectory($input->tree) ) {
+                $this->createFolder($input->tree);
+            }
+
+            $this->createTemplate($template, $input);
+        }
+    }
+
+    /**
+     * @param $template
+     * @param $input
+     */
+    public function createTemplate($template, $input) {
+
+        if (isset($template->folders)) {
+            foreach($template->folders as $folder) {
+                $this->createFolder($input->tree.'/'.$folder);
+            }
+        }
+
+        if (isset($template->files)) {
+            foreach($template->files as $file) {
+                $this->createFile($file, $input);
+            }
+        }
+
+    }
+
+
+    /**
+     * @param $path
+     */
+    public function createFolder($path) {
+        $this->file->makeDirectory($path, $mode = 777, true, true);
+    }
+
+
+    /**
+     * @param $file
+     * @param $input
+     */
+    public function createFile($file, $input) {
+
+        $template = $this->file->get(__DIR__.'/../patterns/'.$input->pattern.'/'.$file->file);
         $stub = $this->mustache->render($template, $input);
 
-        $this->file->put($destination, $stub);
+        $this->file->put($input->tree.'/'.str_replace('.stub', '', $file->file), $stub);
     }
 
 }

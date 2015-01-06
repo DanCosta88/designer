@@ -1,0 +1,40 @@
+{
+  "name": "Abstract Factory Pattern",
+  "documentation": "Sample documentation for factory pattern.",
+  "folders": [
+    "Factory1",
+    "Factory2"
+  ],
+  "files": [
+    {
+      "path": "",
+      "file": "AbstractFactory.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": "",
+      "file": "AbstractProductA.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": "",
+      "file": "AbstractProductB.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": "",
+      "file": "ConcreteFactory1.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": "",
+      "file": "ConcreteFactory2.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": "",
+      "file": "Product.php.stub",
+      "comment": "This file is used for that."
+    }
+  ]
+}
