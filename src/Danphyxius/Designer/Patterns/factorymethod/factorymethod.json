@@ -1,0 +1,32 @@
+{
+  "name": "Factory Method Pattern",
+  "documentation": "Sample documentation for factory method.",
+  "files": [
+    {
+      "path": false,
+      "file": "Creator.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": false,
+      "file": "ConcreteCreator.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": false,
+      "file": "Product.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": false,
+      "file": "ProductA.php.stub",
+      "comment": "This file is used for that."
+    },
+    {
+      "path": false,
+      "file": "ProductB.php.stub",
+      "comment": "This file is used for that."
+    }
+  ],
+  "uml": true
+}

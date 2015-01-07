@@ -1,0 +1,41 @@
+<?php namespace {{ namespace }};
+
+/**
+ * class {{ name }} that contain abstract FactoryMethod
+ */
+abstract class {{ name }}
+{
+
+    const PRODUCT_A = 'product_a';
+    const PRODUCT_B = 'product_b';
+
+    /**
+     * The children of the class must implement this method
+     *
+     * Sometimes this method can be public to get "raw" object
+     *
+     * @param string $type a generic type
+     *
+     * @return Product a product
+     */
+    abstract protected function factoryMethod($type);
+
+    /**
+     * Creates a new ConcreteProduct
+     *
+     * @param int $type
+     *
+     * @return Product a product
+     */
+    public function create($type)
+    {
+        $obj = $this->factoryMethod($type);
+
+        /*
+         * Make here other init operations.
+         * Example: $obj->setValue(123);
+         */
+
+        return $obj;
+    }
+}

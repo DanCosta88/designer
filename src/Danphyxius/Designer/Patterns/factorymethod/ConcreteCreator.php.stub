@@ -1,0 +1,24 @@
+<?php namespace {{ namespace }};
+
+/**
+ * ConcreteCreator is product factory for Product
+ */
+class {{ name }} extends Creator
+{
+    /**
+     * {@inheritdoc}
+     */
+    protected function factoryMethod($type)
+    {
+        switch ($type) {
+            case parent::PRODUCT_A:
+                return new ProductA();
+                break;
+            case parent::PRODUCT_B:
+                return new ProductB();
+                break;
+            default:
+                throw new \InvalidArgumentException("$type is not a valid product");
+        }
+    }
+}

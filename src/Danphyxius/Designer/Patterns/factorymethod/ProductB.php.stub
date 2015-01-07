@@ -1,0 +1,22 @@
+<?php namespace {{ namespace }};
+
+/**
+ * {{ name }} is a ConcreteProduct class.
+ */
+class {{ name }} implements Product
+{
+    /**
+     * @var string
+     */
+    protected $value;
+
+    /**
+     * Sets the value of {{ name }} object.
+     *
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        $this->value = (string) $value;
+    }
+}

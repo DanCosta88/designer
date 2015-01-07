@@ -1,6 +1,6 @@
 {
   "name": "Abstract Factory Pattern",
-  "documentation": "Sample documentation for factory pattern.",
+  "documentation": "Sample documentation for abstract factory pattern.",
   "folders": [
     "Factory1",
     "Factory2"
