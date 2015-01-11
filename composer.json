@@ -1,6 +1,8 @@
 {
     "name": "danphyxius/designer",
-    "description": "",
+    "description": "Laravel Package Helper to designer lower context patterns with uml.",
+    "license": "MIT",
+    "keywords": ["Laravel", "Design Pattern", "Designer", "Pattern", "Uml"],
     "authors": [
         {
             "name": "Danilo Costa",
