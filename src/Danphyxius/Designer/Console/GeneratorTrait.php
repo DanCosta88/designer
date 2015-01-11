@@ -68,6 +68,11 @@ trait GeneratorTrait
      */
     public function createTemplate(Filesystem $filesystem, $template, $input)
     {
+
+        if (! $filesystem->isDirectory($input->tree) ) {
+            $this->createFolder($filesystem, $input->tree);
+        }
+
         if (isset($template->folders)) {
             foreach($template->folders as $folder) {
                 $this->createFolder($filesystem, $input->tree.'/'.$folder);

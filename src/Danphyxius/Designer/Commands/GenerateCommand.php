@@ -1,10 +1,12 @@
-<?php namespace Danphyxius\Designer\Console;
+<?php namespace Danphyxius\Designer\Commands;
 
+use Danphyxius\Designer\Generators\Generator;
+use Danphyxius\Designer\Parsers\InputParser;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class DesignerGenerateCommand extends Command
+class GenerateCommand extends Command
 {
 
     /**
@@ -35,14 +37,14 @@ class DesignerGenerateCommand extends Command
      * Create a new command instance.
      *
      * @param InputParser $parser
-     * @param PatternGenerator $generator
+     * @param Generator $generator
      */
-    public function __construct(InputParser $parser, PatternGenerator $generator)
+    public function __construct(InputParser $parser, Generator $generator)
     {
+        parent::__construct();
+
         $this->parser = $parser;
         $this->generator = $generator;
-
-        parent::__construct();
     }
 
     /**

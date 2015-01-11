@@ -50,10 +50,11 @@ class DesignerServiceProvider extends ServiceProvider {
 	{
 		$this->app->bindShared('designer.command.make', function($app)
 		{
-			return $app->make('Danphyxius\Designer\Console\DesignerGenerateCommand');
+			return $app->make('Danphyxius\Designer\Commands\GenerateCommand');
 		});
 
 		$this->commands('designer.command.make');
 	}
+
 
 }
